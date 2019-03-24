@@ -7,13 +7,13 @@ require('./API/model/applicationsModel'),
 var mongoose = require('mongoose');
 
 // MongoDB URI building
-var mongoDBUser = process.env.mongoDBUser || "myAdmin";
-var mongoDBPass = process.env.mongoDBPass || "myAdminPassword";
+var mongoDBUser = process.env.mongoDBUser;// || "myAdmin";
+var mongoDBPass = process.env.mongoDBPass;// || "myAdminPassword";
 var mongoDBCredentials =
     (mongoDBUser && mongoDBPass) ? mongoDBUser + ":" + mongoDBPass + "@" : "";
 
 var mongoDBHostname = process.env.mongoDBHostname || "localhost";
-var mongoDBPort = process.env.mongoDBPort || "27017";
+var mongoDBPort = process.env.DBPORT || "27017";
 var mongoDBName = process.env.mongoDBName || "ACME-Explorer";
 
 var mongoDBURI =
