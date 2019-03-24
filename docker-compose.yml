@@ -1,6 +1,6 @@
 version: '3'
 services:
-  DO1819-02:
+  do1819-02:
     build: .
     environment: 
       - NODE_ENV=${NODE_ENV}
