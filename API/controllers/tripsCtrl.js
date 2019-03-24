@@ -70,6 +70,58 @@ exports.update_an_trip = function (req, res) {
         });
 };
 
+
+
+exports.update_an_trip_status = function (req, res) {
+    var apps = [];
+    var query = {
+        "trip": (req.params._id),
+        "status": {
+            "$ne": "CANCELLED"
+        }
+    };
+
+    Application.find(
+        query,
+        function (err, applications) {
+            if (err) {
+                res.send(err);
+            }
+            else {
+                if (applications.length > 0) {
+                    res.status(405).json({ message: 'You can not update this trip' });
+                    return;
+                } else {
+                    res.status(200).json({ message: 'You can update this trip'});
+                }
+            }
+        });
+
+    /* new ObjectId new mongoose.Schema.ObjectId
+        if (applications.status != "CANCELLED") {
+            res.status(405).json({ message: 'You can not update this trip' });
+        }
+        else {
+            Trip.findOneAndUpdate(
+                { ticker: req.params.ticker },
+                req.body.status,
+                { new: true },
+    
+    
+                function (err, trip) {
+    
+                    if (err) {
+                        res.send(err);
+                    }
+                    else {
+                        res.json(trip);
+                    }
+    
+    
+                });
+        }*/
+};
+
 exports.delete_an_trip = function (req, res) {
     
     Trip.deleteOne(
