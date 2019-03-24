@@ -1,0 +1,37 @@
+{
+  "name": "acme-explorer",
+  "version": "1.0.0",
+  "description": "acme-explorer REST API",
+  "main": "app.js",
+  "scripts": {
+    "prestart": "npm install",
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bluecloudus/ACME-EXPLORER-BC.git"
+  },
+  "author": "yersalher@alum.us.es, fauayaver@alum.us.es, fragongod@alum.us.es y juatagrei@alum.us.es",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bluecloudus/ACME-EXPLORER-BC/issues"
+  },
+  "homepage": "https://github.com/bluecloudus/ACME-EXPLORER-BC#readme",
+  "dependencies": {
+    "async": "^2.6.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "cron": "^1.6.0",
+    "dateformat": "^3.0.3",
+    "express": "^4.16.4",
+    "firebase-admin": "^7.1.0",
+    "mongoose": "^5.4.13",
+    "nanoid": "^2.0.1",
+    "request": "^2.88.0",
+    "stream-to-mongo-db": "^1.6.0"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1"
+  }
+}
