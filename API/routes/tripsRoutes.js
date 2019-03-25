@@ -17,6 +17,10 @@ module.exports = function (app) {
     .post(trip.create_an_trip)
     .get(trip.list_all_trips);
 
+    
+  app.route('/v1/trips/search')
+    .get(trip.search_trips);
+
   /**
    * Put an applications
    * Delete an applications
@@ -27,9 +31,6 @@ module.exports = function (app) {
   app.route('/v1/trips/:ticker')
     .put(trip.update_an_trip)
     .delete(trip.delete_an_trip);
-
-
-
 
   app.route('/v2/trips/:ticker')
     .get(trip.list_a_trip)
@@ -42,7 +43,5 @@ module.exports = function (app) {
       trip.update_an_trip)
     .delete(authController.verifyUser(['MANAGER']),
       trip.delete_an_trip);
-
-
 
 }
