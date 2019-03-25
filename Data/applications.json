@@ -1,0 +1,79 @@
+{ 
+    "_id" : ObjectId("5c687d21ab350321f0c27ca7"), 
+    "status" : "ACCEPTED", 
+    "if_paid" : true, 
+    "validated" : true, 
+    "trip" : ObjectId("5c687760c42f2d22c08cd84f"), 
+    "created" : ISODate("2019-02-16T21:14:09.198+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5c687d6eab350321f0c27ca8"), 
+    "status" : "PENDING", 
+    "if_paid" : true, 
+    "validated" : false, 
+    "trip" : ObjectId("5c68768dc42f2d22c08cd84b"), 
+    "comment" : " NO Quiero participar en el viaje", 
+    "created" : ISODate("2019-02-16T21:15:26.624+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5c783a32461e2d334cb7ec73"), 
+    "status" : "PENDING", 
+    "if_paid" : false, 
+    "validated" : false, 
+    "cancelationMoment" : null, 
+    "trip" : ObjectId("5c68768dc42f2d22c08cd84b"), 
+    "explorer" : ObjectId("5c6852f34112510ff0a5dbb3"), 
+    "comment" : "Quiero participar en el viaje", 
+    "created" : ISODate("2019-02-28T19:44:50.353+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5c7bff23af8be91c9cc492d8"), 
+    "status" : "PENDING", 
+    "if_paid" : false, 
+    "validated" : false, 
+    "cancelationMoment" : null, 
+    "trip" : ObjectId("5c7bfda8af8be91c9cc492d5"), 
+    "explorer" : ObjectId("5c6852f34112510ff0a5dbb3"), 
+    "comment" : "Quiero participar en el viaje", 
+    "created" : ISODate("2019-03-03T16:21:55.611+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5c7bff6aaf8be91c9cc492d9"), 
+    "status" : "PENDING", 
+    "if_paid" : false, 
+    "validated" : false, 
+    "cancelationMoment" : null, 
+    "trip" : ObjectId("5c7bfda8af8be91c9cc492d5"), 
+    "explorer" : ObjectId("5c6852f34112510ff0a5dbb3"), 
+    "comment" : "Quiero participar en el viaje", 
+    "created" : ISODate("2019-03-03T16:23:06.093+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5c7bff6baf8be91c9cc492da"), 
+    "status" : "PENDING", 
+    "if_paid" : false, 
+    "validated" : false, 
+    "cancelationMoment" : null, 
+    "trip" : ObjectId("5c7bfda8af8be91c9cc492d5"), 
+    "explorer" : ObjectId("5c6852f34112510ff0a5dbb3"), 
+    "comment" : "Quiero participar en el viaje", 
+    "created" : ISODate("2019-03-03T16:23:07.683+0000"), 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5c7bff6caf8be91c9cc492db"), 
+    "status" : "PENDING", 
+    "if_paid" : false, 
+    "validated" : false, 
+    "cancelationMoment" : null, 
+    "trip" : ObjectId("5c7bfda8af8be91c9cc492d5"), 
+    "explorer" : ObjectId("5c6852f34112510ff0a5dbb3"), 
+    "comment" : "Quiero participar en el viaje", 
+    "created" : ISODate("2019-03-03T16:23:08.750+0000"), 
+    "__v" : NumberInt(0)
+}

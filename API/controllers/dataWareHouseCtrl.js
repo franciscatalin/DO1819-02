@@ -7,7 +7,6 @@ var mongoose = require('mongoose'),
 
 exports.list_all_indicators = function (req, res) {
     console.log('Requesting indicators');
-
     DataWareHouse.find()
         .sort("-computationMoment")
         .exec(function (err, indicators) {
@@ -41,8 +40,8 @@ var CronTime = require('cron').CronTime;
 //'0 0 * * * *' una hora
 //'*/30 * * * * *' cada 30 segundos
 //'*/10 * * * * *' cada 10 segundos
-//'* * * * * *' cada segundo
-var rebuildPeriod = '*/35 * * * * *';  //El que se usará por defecto
+//'* * * * * *' cada segundo 
+var rebuildPeriod = '0 0 * * * *';  //El que se usará por defecto
 var computeDataWareHouseJob;
 
 exports.rebuildPeriod = function (req, res) {
@@ -116,7 +115,7 @@ function infoTripbyManager(callback) {
             }
         }
     ];
-    Trips.aggregate(pipiline, function (err, res) {  
+    Trips.aggregate(pipiline, function (err, res) {
         callback(err, res[0])
     });
 };
@@ -141,7 +140,7 @@ function infoApplicationsbyTrip(callback) {
         }
     ];
 
-    Applications.aggregate(pipeline, function (err, res) { 
+    Applications.aggregate(pipeline, function (err, res) {
         callback(err, res[0])
     });
 };
@@ -165,7 +164,7 @@ function infoPriceofTrips(callback) {
             }
         }
     ];
-    Trips.aggregate(pipeline, function (err, res) {  
+    Trips.aggregate(pipeline, function (err, res) {
         callback(err, res[0])
     });
 };

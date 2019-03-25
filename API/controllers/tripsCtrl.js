@@ -19,7 +19,7 @@ exports.create_an_trip = function (req, res) {
 };
 
 exports.list_all_trips = function (req, res) {
-    //Check if status param exists (status: req.query.status)  
+    //Check if status param exists (status: req.keyWordQuery.status)  
     Trip.find(function (err, trips) {
         if (err) {
             res.send(err);
@@ -34,8 +34,8 @@ exports.list_all_trips = function (req, res) {
 };
 
 exports.list_a_trip = function (req, res) {
-    //Check if status param exists (status: req.query.status)  
-    Trip.find({ _id: req.params._id }, function (err, trip) {
+    //Check if status param exists (status: req.keyWordQuery.status)  
+    Trip.find({ ticker: req.params.ticker }, function (err, trip) {
         if (err) {
             res.send(err);
         }
@@ -52,37 +52,128 @@ exports.list_a_trip = function (req, res) {
 
 exports.update_an_trip = function (req, res) {
     // console.log((req.body));
-    
+
     Trip.findOneAndUpdate(
         { ticker: req.params.ticker },
         req.body,
         { new: true },
         function (err, trip) {
             if (trip.status != 'PUBLISHED') {
+                if (err) {
+                    res.send(err);
+                }
+                else {
+                    res.json(trip);
+                }
+            }
+            else {
+                res.status(405).json({ message: 'Update trip with status PUBLISHED is not allowed' });
+            }
+        });
+};
+
+
+
+exports.update_an_trip_status = function (req, res) {
+    var keyWordQuery = {
+        "trip": (req.params._id),
+        "status": {
+            "$ne": "CANCELLED"
+        }
+    };
+
+    Application.find(
+        keyWordQuery,
+        function (err, applications) {
             if (err) {
                 res.send(err);
             }
             else {
-                res.json(trip);
+                if (applications.length > 0) {
+                    res.status(405).json({ message: 'You can not update this trip' });
+                    return;
+                } else {
+                    res.status(200).json({ message: 'You can update this trip' });
+                }
             }
-        }
-        else {res.status(405).json({ message: 'Update trip with status PUBLISHED is not allowed' });}
         });
+
+    /* new ObjectId new mongoose.Schema.ObjectId
+        if (applications.status != "CANCELLED") {
+            res.status(405).json({ message: 'You can not update this trip' });
+        }
+        else {
+            Trip.findOneAndUpdate(
+                { ticker: req.params.ticker },
+                req.body.status,
+                { new: true },
+    
+    
+                function (err, trip) {
+    
+                    if (err) {
+                        res.send(err);
+                    }
+                    else {
+                        res.json(trip);
+                    }
+    
+    
+                });
+        }*/
 };
 
 exports.delete_an_trip = function (req, res) {
-    
+
     Trip.deleteOne(
         { _id: req.params._id },
-         function (err, trip) {
-        
-        if (err) {
-            res.send(err);
-        }
-        else {
-            res.json({ message: 'Trip successfully deleted' });
-        }
-    
-   
-    });
+        function (err, trip) {
+
+            if (err) {
+                res.send(err);
+            }
+            else {
+                res.json({ message: 'Trip successfully deleted' });
+            }
+        });
+};
+
+exports.search_trips = (req, res) => {
+    // console.log(req.query); /v1/trips/search?q=viaje&sortedBy=created&reverse=true&pageSize=3&startFrom=3
+    var keyWordQuery = {};
+
+    if (req.query.q) {
+        keyWordQuery.$text = { $search: req.query.q };
+    }
+
+    var skip = 0;
+    if (req.query.startFrom) {
+        skip = parseInt(req.query.startFrom);
+    }
+    var limit = 0;
+    if (req.query.pageSize) {
+        limit = parseInt(req.query.pageSize);
+    }
+
+    var sort = "";
+    if (req.query.reverse == "true") {
+        sort = "-";
+    }
+    if (req.query.sortedBy) {
+        sort += req.query.sortedBy;
+    }
+
+    Trip.find(keyWordQuery)
+        .skip(skip)
+        .limit(limit)
+        .sort(sort)
+        .lean()
+        .exec((err, trip) => {
+            if (err) {
+                res.send(err);
+            } else {
+                res.send(trip);
+            }
+
+        });
 };
