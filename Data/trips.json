@@ -1,0 +1,248 @@
+{ 
+    "_id" : ObjectId("5c7949670e2ded2ff8fbb5e1"), 
+    "published" : false, 
+    "cancelationMoment" : null, 
+    "list_requirements" : [
+        "mayor de edad"
+    ], 
+    "date_start" : ISODate("2010-11-11T23:00:00.000+0000"), 
+    "date_end" : ISODate("2011-12-11T23:00:00.000+0000"), 
+    "description" : "Vi100", 
+    "title" : "Protugi Text", 
+    "price" : NumberInt(90), 
+    "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
+    "picture" : [
+        {
+            "_id" : ObjectId("5c687760c42f2d22c08cd850"), 
+            "Buffer" : "awedfcrfvaesfvefdvsfdv1aerdfvadf64vAadf8bv4gs6d4bs6gv15fs1v6efef", 
+            "contentType" : "jpg"
+        }
+    ], 
+    "stage" : [
+        {
+            "price" : NumberInt(0), 
+            "_id" : ObjectId("5c687760c42f2d22c08cd852"), 
+            "title" : "Espana Moscu", 
+            "description" : "Espana Moscu", 
+            "created" : ISODate("2019-02-16T20:49:36.045+0000")
+        }
+    ], 
+    "created" : ISODate("2019-03-01T15:01:59.666+0000"), 
+    "ticker" : "190301-XTKZ", 
+    "__v" : NumberInt(0), 
+    "status" : "PUBLISHED"
+}
+{ 
+    "_id" : ObjectId("5c79499a0e2ded2ff8fbb5e5"), 
+    "published" : false, 
+    "cancelationMoment" : null, 
+    "list_requirements" : [
+        "mayor de sin mascotas"
+    ], 
+    "date_start" : ISODate("2010-03-11T23:00:00.000+0000"), 
+    "date_end" : ISODate("2011-04-11T23:00:00.000+0000"), 
+    "description" : "Viaje", 
+    "title" : "Viaje a Portugal", 
+    "price" : NumberInt(90), 
+    "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
+    "picture" : [
+        {
+            "_id" : ObjectId("5c79499a0e2ded2ff8fbb5e6"), 
+            "Buffer" : "awedfcrfvaesfvefdvsfdv1aerdfvadf64vAadf8bv4gs6d4bs6gv15fs1v6efef", 
+            "contentType" : "jpg"
+        }
+    ], 
+    "stage" : [
+        {
+            "price" : NumberInt(13), 
+            "_id" : ObjectId("5c79499a0e2ded2ff8fbb5e8"), 
+            "title" : "Sintra", 
+            "description" : "Sintra Portugal", 
+            "created" : ISODate("2019-03-01T15:02:50.848+0000")
+        }, 
+        {
+            "price" : NumberInt(0), 
+            "_id" : ObjectId("5c79499a0e2ded2ff8fbb5e7"), 
+            "title" : "Lisboa", 
+            "description" : "Lisboa Portugal", 
+            "created" : ISODate("2019-03-01T15:02:50.848+0000")
+        }
+    ], 
+    "created" : ISODate("2019-03-01T15:02:50.848+0000"), 
+    "ticker" : "190301-JBWC", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5c7949f40e2ded2ff8fbb5e9"), 
+    "published" : false, 
+    "cancelationMoment" : null, 
+    "list_requirements" : [
+        "mayor de edad"
+    ], 
+    "date_start" : ISODate("2010-11-11T23:00:00.000+0000"), 
+    "date_end" : ISODate("2011-12-11T23:00:00.000+0000"), 
+    "description" : "Vi96", 
+    "title" : "Protugi 8e", 
+    "price" : NumberInt(100), 
+    "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
+    "picture" : [
+        {
+            "_id" : ObjectId("5c687760c42f2d22c08cd850"), 
+            "Buffer" : "awedfcrfvaesfvefdvsfdv1aerdfvadf64vAadf8bv4gs6d4bs6gv15fs1v6efef", 
+            "contentType" : "jpg"
+        }
+    ], 
+    "stage" : [
+        {
+            "price" : NumberInt(0), 
+            "_id" : ObjectId("5c687760c42f2d22c08cd852"), 
+            "title" : "Espana Mo", 
+            "description" : "Espana Moscu", 
+            "created" : ISODate("2019-02-16T20:49:36.045+0000")
+        }
+    ], 
+    "created" : ISODate("2019-03-01T15:04:20.388+0000"), 
+    "ticker" : "190301-HFHH", 
+    "__v" : NumberInt(0), 
+    "status" : "PUBLISHED"
+}
+{ 
+    "_id" : ObjectId("5c794b1f0e2ded2ff8fbb5ed"), 
+    "published" : false, 
+    "cancelationMoment" : null, 
+    "list_requirements" : [
+        "mayor de sin mascotas"
+    ], 
+    "date_start" : ISODate("2010-03-11T23:00:00.000+0000"), 
+    "date_end" : ISODate("2011-04-11T23:00:00.000+0000"), 
+    "description" : "Viaje", 
+    "title" : "Canada", 
+    "price" : NumberInt(100), 
+    "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
+    "picture" : [
+        {
+            "_id" : ObjectId("5c794b1f0e2ded2ff8fbb5ee"), 
+            "Buffer" : "awedfcrfvaesfvefdvsfdv1aerdfvadf64vAadf8bv4gs6d4bs6gv15fs1v6efef", 
+            "contentType" : "jpg"
+        }
+    ], 
+    "stage" : [
+        {
+            "price" : NumberInt(13), 
+            "_id" : ObjectId("5c794b1f0e2ded2ff8fbb5f0"), 
+            "title" : "Toronton", 
+            "description" : "Toronton Canada", 
+            "created" : ISODate("2019-03-01T15:09:19.630+0000")
+        }, 
+        {
+            "price" : NumberInt(0), 
+            "_id" : ObjectId("5c794b1f0e2ded2ff8fbb5ef"), 
+            "title" : "Ontario", 
+            "description" : "Ontario Canada", 
+            "created" : ISODate("2019-03-01T15:09:19.630+0000")
+        }
+    ], 
+    "created" : ISODate("2019-03-01T15:09:19.630+0000"), 
+    "ticker" : "190301-CUZN", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5c794b620e2ded2ff8fbb5f1"), 
+    "published" : false, 
+    "cancelationMoment" : null, 
+    "list_requirements" : [
+        "mayor de sin mascotas"
+    ], 
+    "date_start" : ISODate("2010-03-11T23:00:00.000+0000"), 
+    "date_end" : ISODate("2011-04-11T23:00:00.000+0000"), 
+    "description" : "Viaje", 
+    "title" : "Francia", 
+    "price" : NumberInt(85), 
+    "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
+    "picture" : [
+        {
+            "_id" : ObjectId("5c794b620e2ded2ff8fbb5f2"), 
+            "Buffer" : "awedfcrfvaesfvefdvsfdv1aerdfvadf64vAadf8bv4gs6d4bs6gv15fs1v6efef", 
+            "contentType" : "jpg"
+        }
+    ], 
+    "stage" : [
+        {
+            "price" : NumberInt(13), 
+            "_id" : ObjectId("5c794b620e2ded2ff8fbb5f3"), 
+            "title" : "Paris", 
+            "description" : "Paris Francia", 
+            "created" : ISODate("2019-03-01T15:10:26.261+0000")
+        }
+    ], 
+    "created" : ISODate("2019-03-01T15:10:26.261+0000"), 
+    "ticker" : "190301-YWDP", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5c7bfd75af8be91c9cc492d2"), 
+    "published" : false, 
+    "cancelationMoment" : null, 
+    "list_requirements" : [
+        "mayor de sin mascotas"
+    ], 
+    "date_start" : ISODate("2010-03-11T23:00:00.000+0000"), 
+    "date_end" : ISODate("2011-04-11T23:00:00.000+0000"), 
+    "description" : "Viaje", 
+    "title" : "Brazil", 
+    "price" : NumberInt(105), 
+    "actor" : ObjectId("5c6853124112510ff0a5dbb4"), 
+    "picture" : [
+        {
+            "_id" : ObjectId("5c7bfd75af8be91c9cc492d3"), 
+            "Buffer" : "awedfcrfvaesfvefdvsfdv1aerdfvadf64vAadf8bv4gs6d4bs6gv15fs1v6efef", 
+            "contentType" : "jpg"
+        }
+    ], 
+    "stage" : [
+        {
+            "price" : NumberInt(13), 
+            "_id" : ObjectId("5c7bfd75af8be91c9cc492d4"), 
+            "title" : "Paris", 
+            "description" : "Paris Francia", 
+            "created" : ISODate("2019-03-03T16:14:45.314+0000")
+        }
+    ], 
+    "created" : ISODate("2019-03-03T16:14:45.314+0000"), 
+    "ticker" : "190303-YFRX", 
+    "__v" : NumberInt(0)
+}
+{ 
+    "_id" : ObjectId("5c7bfda8af8be91c9cc492d5"), 
+    "published" : false, 
+    "cancelationMoment" : null, 
+    "list_requirements" : [
+        "mayor de edad"
+    ], 
+    "date_start" : ISODate("2010-11-11T23:00:00.000+0000"), 
+    "date_end" : ISODate("2011-12-11T23:00:00.000+0000"), 
+    "description" : "Vi96", 
+    "title" : "Protugi 8e", 
+    "price" : NumberInt(200), 
+    "actor" : ObjectId("5c6853124112510ff0a5dbb4"), 
+    "picture" : [
+        {
+            "_id" : ObjectId("5c687760c42f2d22c08cd850"), 
+            "Buffer" : "awedfcrfvaesfvefdvsfdv1aerdfvadf64vAadf8bv4gs6d4bs6gv15fs1v6efef", 
+            "contentType" : "jpg"
+        }
+    ], 
+    "stage" : [
+        {
+            "price" : NumberInt(0), 
+            "_id" : ObjectId("5c687760c42f2d22c08cd852"), 
+            "title" : "Espana Mo", 
+            "description" : "Espana Moscu", 
+            "created" : ISODate("2019-02-16T20:49:36.045+0000")
+        }
+    ], 
+    "created" : ISODate("2019-03-03T16:15:36.336+0000"), 
+    "ticker" : "190303-WNON", 
+    "__v" : NumberInt(0), 
+    "status" : "PUBLISHED"
+}
