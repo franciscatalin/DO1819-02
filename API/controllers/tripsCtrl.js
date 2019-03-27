@@ -33,6 +33,25 @@ exports.list_all_trips = function (req, res) {
     console.log('Searching an trip depending on params');
 };
 
+exports.list_all_trips_status = function (req, res) {
+    //Check if status param exists (status: req.keyWordQuery.status)  
+    
+    Trip.find(function (err, trips) {
+        if (trip.status == 'PUBLISHED') {
+        if (err) {
+            res.send(err);
+        }
+    }
+        else {
+            // res.append('Trip returned from the trip search');
+            console.log ("No hay viajes que mostrar");
+            res.json(trips);
+        }
+    });
+
+    console.log('Searching an trip depending on params');
+};
+
 exports.list_a_trip = function (req, res) {
     //Check if status param exists (status: req.keyWordQuery.status)  
     Trip.find({ ticker: req.params.ticker }, function (err, trip) {
@@ -112,6 +131,8 @@ exports.delete_an_trip_witout_app = function (req, res) {
 
  
 };
+
+
 
 exports.delete_an_trip = function (req, res) {
 
