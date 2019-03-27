@@ -38,10 +38,13 @@ module.exports = function (app) {
       trip.create_an_trip);
 
   app.route('/v2/trips/:ticker')
-    .get(trip.list_a_trip)
+    .get(trip.list_a_trip_status)
     .put(authController.verifyUser(['MANAGER']),
       trip.update_an_trip)
     .delete(authController.verifyUser(['MANAGER']),
-      trip.delete_an_trip);
+      trip.delete_an_trip)
+    .delete(authController.verifyUser(['MANAGER']),
+      trip.delete_an_trip_witout_app)  
+      ;
 
 }
