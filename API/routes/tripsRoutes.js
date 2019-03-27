@@ -47,7 +47,7 @@ module.exports = function (app) {
 
   app.route('/v3/trips/:ticker')
     .delete(authController.verifyUser(['MANAGER']),
-      trip.delete_an_trip_without_app)
+      trip.delete_an_trip_witout_app)
     ;
 
   app.route('/v3/trips')

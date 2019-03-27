@@ -187,4 +187,6 @@ exports.search_trips = (req, res) => {
             }
 
         });
+
+ 
 };
