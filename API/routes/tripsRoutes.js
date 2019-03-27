@@ -17,7 +17,7 @@ module.exports = function (app) {
     .post(trip.create_an_trip)
     .get(trip.list_all_trips);
 
-    
+
   app.route('/v1/trips/search')
     .get(trip.search_trips);
 
@@ -38,13 +38,23 @@ module.exports = function (app) {
       trip.create_an_trip);
 
   app.route('/v2/trips/:ticker')
-    .get(trip.list_a_trip_status)
+    .get(authController.verifyUser(['MANAGER']),
+    trip.list_a_trip)
     .put(authController.verifyUser(['MANAGER']),
       trip.update_an_trip)
     .delete(authController.verifyUser(['MANAGER']),
-      trip.delete_an_trip)
+      trip.delete_an_trip);
+
+  app.route('/v3/trips/:ticker')
     .delete(authController.verifyUser(['MANAGER']),
-      trip.delete_an_trip_witout_app)  
-      ;
+      trip.delete_an_trip_witout_app)
+    ;
+
+  app.route('/v3/trips')
+    .get(authController.verifyUser(['EXPLORER']),
+      trip.list_all_trips_status)
+    ;
+
+
 
 }

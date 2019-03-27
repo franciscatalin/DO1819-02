@@ -33,15 +33,29 @@ module.exports = function (app) {
     app.route('/v1/applications/:_id')
         .put(application.update_an_application);
 
+    /**
+     * Get an applications
+     * RequiredRoles: Manager
+     * @section applications
+     * @type  GET 
+     * @url /v2/applications/:_id
+     */    
     app.route('/v2/applications/:_id')
-        .get(authController.verifyUser(["EXPLORER"]),
-        application.search_applications);   
+        .get(authController.verifyUser(["MANAGER"]),
+        application.search_applications); 
+    /**
+     * Get an applications
+     * RequiredRoles: Manager
+     * @section applications
+     * @type  GET 
+     * @url /v2/applications/:_id
+     */      
 
     app.route('/v2/applications')
-        .get(authController.verifyUser(["EXPLORER"]),
+        .get(authController.verifyUser(["MANAGER"]),
         application.search_applications); 
 
-    app.route('/v2/applications/:_id/status')
-        .put(authController.verifyUser(["EXPLORER"]),
+    app.route('/v2/applications/:_id')
+        .put(authController.verifyUser(["MANAGER"]),
         application.change_status);   
 }
