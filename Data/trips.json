@@ -7,8 +7,9 @@
     ], 
     "date_start" : ISODate("2010-11-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-12-11T23:00:00.000+0000"), 
-    "description" : "Viaje a Portugal", 
-    "title" : "Protugal",
+    "description" : "Viaje a Portugal",
+	"price" : NumberInt(45),	
+    "title" : "Portugal",
     "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
     "picture" : [
         {
@@ -40,7 +41,8 @@
     ], 
     "date_start" : ISODate("2010-03-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-04-11T23:00:00.000+0000"), 
-    "description" : "Viaje a España", 
+    "description" : "Viaje a España",
+	"price" : NumberInt(80),	
     "title" : "España", 
     "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
     "picture" : [
@@ -79,7 +81,8 @@
     ], 
     "date_start" : ISODate("2010-11-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-12-11T23:00:00.000+0000"), 
-    "description" : "Viaje a Francia", 
+    "description" : "Viaje a Francia",
+	"price" : NumberInt(80),
     "title" : "Francia", 
     "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
     "picture" : [
@@ -112,7 +115,8 @@
     ], 
     "date_start" : ISODate("2010-03-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-04-11T23:00:00.000+0000"), 
-    "description" : "Viaje a Canada", 
+    "description" : "Viaje a Canada",
+	"price" : NumberInt(220),
     "title" : "Canada",
     "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
     "picture" : [
@@ -151,7 +155,8 @@
     ], 
     "date_start" : ISODate("2010-03-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-04-11T23:00:00.000+0000"), 
-    "description" : "Viaje a Belgica", 
+    "description" : "Viaje a Belgica",
+	"price" : NumberInt(70),	
     "title" : "Belgica",
     "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
     "picture" : [
@@ -183,7 +188,8 @@
     ], 
     "date_start" : ISODate("2010-03-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-04-11T23:00:00.000+0000"), 
-    "description" : "Viaje a Brasil", 
+    "description" : "Viaje a Brasil",
+	"price" : NumberInt(60),
     "title" : "Brazil", 
     "actor" : ObjectId("5c6853124112510ff0a5dbb4"), 
     "picture" : [
@@ -215,7 +221,8 @@
     ], 
     "date_start" : ISODate("2010-11-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-12-11T23:00:00.000+0000"), 
-    "description" : "Viaje a Italia", 
+    "description" : "Viaje a Italia",
+	"price" : NumberInt(50),	
     "title" : "Italia",
     "actor" : ObjectId("5c6853124112510ff0a5dbb4"), 
     "picture" : [
