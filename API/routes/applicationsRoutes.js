@@ -1,7 +1,7 @@
 'use strict';
 module.exports = function (app) {
-  var application = require('../controllers/applicationsCtrl');
-  var authController = require('../controllers/authCtrl');
+    var application = require('../controllers/applicationsCtrl');
+    var authController = require('../controllers/authCtrl');
 
     /**
      * Get an application  
@@ -13,7 +13,7 @@ module.exports = function (app) {
     */
     app.route('/v1/applications/:status')
         .get(application.search_applications);
-     
+
 
     /**
      * Post an applications   
@@ -39,34 +39,62 @@ module.exports = function (app) {
      * @section applications
      * @type  GET 
      * @url /v2/applications/:_id
-     */    
+     */
     app.route('/v2/applications/:_id')
         .get(authController.verifyUser(["MANAGER"]),
-        application.search_applications); 
+            application.search_applications);
     /**
      * Get an applications
      * RequiredRoles: Manager
      * @section applications
      * @type  GET 
      * @url /v2/applications/:_id
-     */      
+     */
 
     app.route('/v2/applications')
         .get(authController.verifyUser(["MANAGER"]),
-        application.search_applications); 
+            application.search_applications);
+    /**
+        * Put an applications
+        * RequiredRoles: Manager
+        * @section applications
+        * @type  put
+        * @url /v2/applications/:_id
+        */
 
     app.route('/v2/applications/:_id')
         .put(authController.verifyUser(["MANAGER"]),
-        application.change_status);   
+            application.change_status);
+    /**
+           * Get an applications
+           * RequiredRoles: Explorer
+           * @section applications
+           * @type  get
+           * @url /v2/applications
+           */ 
 
-
-        app.route('/v2/applications')
+    app.route('/v2/applications')
         .get(authController.verifyUser(["EXPLORER"]),
             application.group_status);
 
+    /**
+         * Put an applications
+         * RequiredRoles: Explorer
+         * @section applications
+         * @type  put
+         * @url /v2/applications/:_id
+         */
     app.route('/v2/applications/:_id')
         .put(authController.verifyUser(["EXPLORER"]),
             application.paytrip);
+
+    /**
+       * Delete an applications
+       * RequiredRoles: Explorer
+       * @section applications
+       * @type  delete
+       * @url /v2/applications/:_id
+       */
 
     app.route('/v2/applications/:_id')
         .delete(authController.verifyUser(["EXPLORER"]),
