@@ -7,9 +7,9 @@
     ], 
     "date_start" : ISODate("2010-11-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-12-11T23:00:00.000+0000"), 
-    "description" : "Vi100", 
-    "title" : "Protugi Text", 
-    "price" : NumberInt(90), 
+    "description" : "Viaje a Portugal",
+	"price" : NumberInt(45),	
+    "title" : "Portugal",
     "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
     "picture" : [
         {
@@ -20,10 +20,10 @@
     ], 
     "stage" : [
         {
-            "price" : NumberInt(0), 
+            "price" : NumberInt(45), 
             "_id" : ObjectId("5c687760c42f2d22c08cd852"), 
-            "title" : "Espana Moscu", 
-            "description" : "Espana Moscu", 
+            "title" : "Lisboa", 
+            "description" : "Stage Lisboa", 
             "created" : ISODate("2019-02-16T20:49:36.045+0000")
         }
     ], 
@@ -37,13 +37,13 @@
     "published" : false, 
     "cancelationMoment" : null, 
     "list_requirements" : [
-        "mayor de sin mascotas"
+        "sin mascotas"
     ], 
     "date_start" : ISODate("2010-03-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-04-11T23:00:00.000+0000"), 
-    "description" : "Viaje", 
-    "title" : "Viaje a Portugal", 
-    "price" : NumberInt(90), 
+    "description" : "Viaje a España",
+	"price" : NumberInt(80),	
+    "title" : "España", 
     "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
     "picture" : [
         {
@@ -54,17 +54,17 @@
     ], 
     "stage" : [
         {
-            "price" : NumberInt(13), 
+            "price" : NumberInt(60), 
             "_id" : ObjectId("5c79499a0e2ded2ff8fbb5e8"), 
-            "title" : "Sintra", 
-            "description" : "Sintra Portugal", 
+            "title" : "Madrid", 
+            "description" : "Stage Madrid", 
             "created" : ISODate("2019-03-01T15:02:50.848+0000")
         }, 
         {
-            "price" : NumberInt(0), 
+            "price" : NumberInt(20), 
             "_id" : ObjectId("5c79499a0e2ded2ff8fbb5e7"), 
-            "title" : "Lisboa", 
-            "description" : "Lisboa Portugal", 
+            "title" : "Barcelona", 
+            "description" : "Stage Barcelona", 
             "created" : ISODate("2019-03-01T15:02:50.848+0000")
         }
     ], 
@@ -81,9 +81,9 @@
     ], 
     "date_start" : ISODate("2010-11-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-12-11T23:00:00.000+0000"), 
-    "description" : "Vi96", 
-    "title" : "Protugi 8e", 
-    "price" : NumberInt(100), 
+    "description" : "Viaje a Francia",
+	"price" : NumberInt(80),
+    "title" : "Francia", 
     "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
     "picture" : [
         {
@@ -94,10 +94,10 @@
     ], 
     "stage" : [
         {
-            "price" : NumberInt(0), 
+            "price" : NumberInt(80), 
             "_id" : ObjectId("5c687760c42f2d22c08cd852"), 
-            "title" : "Espana Mo", 
-            "description" : "Espana Moscu", 
+            "title" : "Paris", 
+            "description" : "Stage Paris", 
             "created" : ISODate("2019-02-16T20:49:36.045+0000")
         }
     ], 
@@ -111,13 +111,13 @@
     "published" : false, 
     "cancelationMoment" : null, 
     "list_requirements" : [
-        "mayor de sin mascotas"
+        "sin mascotas"
     ], 
     "date_start" : ISODate("2010-03-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-04-11T23:00:00.000+0000"), 
-    "description" : "Viaje", 
-    "title" : "Canada", 
-    "price" : NumberInt(100), 
+    "description" : "Viaje a Canada",
+	"price" : NumberInt(220),
+    "title" : "Canada",
     "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
     "picture" : [
         {
@@ -128,17 +128,17 @@
     ], 
     "stage" : [
         {
-            "price" : NumberInt(13), 
+            "price" : NumberInt(100), 
             "_id" : ObjectId("5c794b1f0e2ded2ff8fbb5f0"), 
-            "title" : "Toronton", 
-            "description" : "Toronton Canada", 
+            "title" : "Toronto", 
+            "description" : "Stage Toronto", 
             "created" : ISODate("2019-03-01T15:09:19.630+0000")
         }, 
         {
-            "price" : NumberInt(0), 
+            "price" : NumberInt(120), 
             "_id" : ObjectId("5c794b1f0e2ded2ff8fbb5ef"), 
             "title" : "Ontario", 
-            "description" : "Ontario Canada", 
+            "description" : "Stage Ontario", 
             "created" : ISODate("2019-03-01T15:09:19.630+0000")
         }
     ], 
@@ -151,13 +151,13 @@
     "published" : false, 
     "cancelationMoment" : null, 
     "list_requirements" : [
-        "mayor de sin mascotas"
+        "sin mascotas"
     ], 
     "date_start" : ISODate("2010-03-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-04-11T23:00:00.000+0000"), 
-    "description" : "Viaje", 
-    "title" : "Francia", 
-    "price" : NumberInt(85), 
+    "description" : "Viaje a Belgica",
+	"price" : NumberInt(70),	
+    "title" : "Belgica",
     "actor" : ObjectId("5c6852f34112510ff0a5dbb3"), 
     "picture" : [
         {
@@ -168,10 +168,10 @@
     ], 
     "stage" : [
         {
-            "price" : NumberInt(13), 
+            "price" : NumberInt(70), 
             "_id" : ObjectId("5c794b620e2ded2ff8fbb5f3"), 
-            "title" : "Paris", 
-            "description" : "Paris Francia", 
+            "title" : "Bruselas", 
+            "description" : "Stage Bruselas", 
             "created" : ISODate("2019-03-01T15:10:26.261+0000")
         }
     ], 
@@ -184,13 +184,13 @@
     "published" : false, 
     "cancelationMoment" : null, 
     "list_requirements" : [
-        "mayor de sin mascotas"
+        "sin mascotas"
     ], 
     "date_start" : ISODate("2010-03-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-04-11T23:00:00.000+0000"), 
-    "description" : "Viaje", 
+    "description" : "Viaje a Brasil",
+	"price" : NumberInt(60),
     "title" : "Brazil", 
-    "price" : NumberInt(105), 
     "actor" : ObjectId("5c6853124112510ff0a5dbb4"), 
     "picture" : [
         {
@@ -201,10 +201,10 @@
     ], 
     "stage" : [
         {
-            "price" : NumberInt(13), 
+            "price" : NumberInt(60), 
             "_id" : ObjectId("5c7bfd75af8be91c9cc492d4"), 
-            "title" : "Paris", 
-            "description" : "Paris Francia", 
+            "title" : "Brasilia", 
+            "description" : "Stage Brasilia", 
             "created" : ISODate("2019-03-03T16:14:45.314+0000")
         }
     ], 
@@ -221,9 +221,9 @@
     ], 
     "date_start" : ISODate("2010-11-11T23:00:00.000+0000"), 
     "date_end" : ISODate("2011-12-11T23:00:00.000+0000"), 
-    "description" : "Vi96", 
-    "title" : "Protugi 8e", 
-    "price" : NumberInt(200), 
+    "description" : "Viaje a Italia",
+	"price" : NumberInt(50),	
+    "title" : "Italia",
     "actor" : ObjectId("5c6853124112510ff0a5dbb4"), 
     "picture" : [
         {
@@ -234,10 +234,10 @@
     ], 
     "stage" : [
         {
-            "price" : NumberInt(0), 
+            "price" : NumberInt(50), 
             "_id" : ObjectId("5c687760c42f2d22c08cd852"), 
-            "title" : "Espana Mo", 
-            "description" : "Espana Moscu", 
+            "title" : "Roma", 
+            "description" : "Stage Roma", 
             "created" : ISODate("2019-02-16T20:49:36.045+0000")
         }
     ], 
