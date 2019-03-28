@@ -1,19 +1,19 @@
 version: '3'
 services:
-  DO1819-02:
+  do1819-02:
     build: .
     environment: 
       - NODE_ENV=${NODE_ENV}
       - PORT=${PORT}
       - DBPORT=${DBPORT}
-      - DBHOST=mongo
+      - mongoDBHostname=mongo
       - VIRTUAL_HOST=${VIRTUAL_HOST}
       - VIRTUAL_PORT=${PORT}
     restart: on-failure
     depends_on:
       - mongo
     ports:
-      - "127.0.0.1:${PORT}:8080"
+      - "127.0.0.1:${PORT}:4000"
     volumes:
       - "logsvol:/usr/src/app/logs"
   mongo:
