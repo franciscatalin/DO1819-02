@@ -1,11 +1,8 @@
 'use strict';
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-const dateFormat = require('dateformat');
-
-
-const generate = require('nanoid/generate');
-
+var mongoose = require('mongoose'),
+    Schema = mongoose.Schema;
+const dateFormat = require('dateformat'),
+    generate = require('nanoid/generate');
 
 var stagechema = new Schema({
     title: {
@@ -32,10 +29,9 @@ var TripSchema = new Schema({
         ref: 'Actor',
         required: 'Kindly enter a valid manager of trip'
     },
-    
     ticker: {
-    //    This validation does not run after middleware pre-save 
-    //    required: 'Kindly enter the ticker of the Trip',
+        //    This validation does not run after middleware pre-save 
+        //    required: 'Kindly enter the ticker of the Trip',
         type: String,
         unique: true,
         validate: [
@@ -43,7 +39,6 @@ var TripSchema = new Schema({
             'ticker is not valid!, Pattern("\d(6)-\w(4)")'
         ]
     },
-    
     cancelled_reason: {
         type: String
     },
@@ -61,7 +56,6 @@ var TripSchema = new Schema({
     },
     price: {
         type: Number
-
     },
     list_requirements: {
         type: [String] //['adios','hola']
@@ -74,7 +68,6 @@ var TripSchema = new Schema({
     date_start: {
         type: Date,
         required: 'Kindly enter the start of the Trip'
-
     },
     date_end: {
         type: Date,
@@ -98,10 +91,18 @@ var TripSchema = new Schema({
 
 TripSchema.pre('save', function (callback) {
     var new_trip = this;
+    var totalPrice = 0;
+
+    new_trip.stage.forEach(element => {
+        totalPrice += element.price;
+    });
+    new_trip.price = totalPrice;
+
     var day = dateFormat(new Date(), "yymmdd");
 
     var generated_ticker = [day, generate('ABCDEFGHIJKLMNOPQRSTUVWXYZ', 4)].join('-')
     new_trip.ticker = generated_ticker;
+
     callback();
 });
 
@@ -113,9 +114,9 @@ function validator(v) {
     return /\d{6}-\w{4}/.test(v);
 }
 
-TripSchema.index({ticker: 'text', title: 'text', description: 'text' });
-TripSchema.index({price: 1 });
-TripSchema.index({cancelationMoment: 1 });
+TripSchema.index({ ticker: 'text', title: 'text', description: 'text' });
+TripSchema.index({ price: 1 });
+TripSchema.index({ cancelationMoment: 1 });
 
 module.exports = mongoose.model('Trips', TripSchema);
 module.exports = mongoose.model('Stages', stagechema);
