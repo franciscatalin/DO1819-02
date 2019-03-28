@@ -2,6 +2,7 @@ require('./API/model/applicationsModel'),
     require('./API/model/tripsModel'),
     require('./API/model/actorsModel'),
     require('./API/model/bannerModel'),
+    require('./API/model/finderModel'),
     require('./API/model/dataWareHouseModel');
 
 var mongoose = require('mongoose');
@@ -13,7 +14,7 @@ var mongoDBCredentials =
     (mongoDBUser && mongoDBPass) ? mongoDBUser + ":" + mongoDBPass + "@" : "";
 
 var mongoDBHostname = process.env.mongoDBHostname || "localhost";
-var mongoDBPort = process.env.mongoDBPort || "27017";
+var mongoDBPort = process.env.DBPORT || "27017";
 var mongoDBName = process.env.mongoDBName || "ACME-Explorer";
 
 var mongoDBURI =
