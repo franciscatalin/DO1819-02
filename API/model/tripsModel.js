@@ -92,6 +92,7 @@ var TripSchema = new Schema({
 TripSchema.pre('save', function (callback) {
     var new_trip = this;
     var totalPrice = 0;
+    new_trip.price = 0;
 
     new_trip.stage.forEach(element => {
         totalPrice += element.price;
