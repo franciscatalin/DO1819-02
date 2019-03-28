@@ -68,5 +68,5 @@ exports.delete_an_application = function (req, res) {
 
 
 exports.change_status = function (req, res) {
-   
+   //PUT -- "CHANGE STATUS FOR MANAGER FROM PENDING TO REJECTED OR FROM PENDING TO DUE"
 };

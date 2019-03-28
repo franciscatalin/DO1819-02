@@ -4,7 +4,7 @@ var mongoose = require('mongoose'),
     Trip = mongoose.model('Trips');
 
 exports.create_an_trip = function (req, res) {
-    //Check if the user is an explorer and if not: res.status(403); 
+    //Check if the user is an manager and if not: res.status(403); 
     //"an access token is valid, but requires more privileges"
     // console.log((req.body));
     var new_trip = new Trip(req.body);
@@ -18,14 +18,29 @@ exports.create_an_trip = function (req, res) {
     });
 };
 
-exports.list_all_trips = function (req, res) {
-    //Check if status param exists (status: req.keyWordQuery.status)  
+exports.list_all_trips = function (req, res) { 
     Trip.find(function (err, trips) {
         if (err) {
             res.send(err);
         }
+        else { 
+            res.json(trips);
+        }
+    }); 
+};
+
+exports.list_all_trips_status = function (req, res) {
+    //Check if status param exists (status: req.keyWordQuery.status)  
+
+    Trip.find(function (err, trips) {
+        if (trip.status == 'PUBLISHED') {
+            if (err) {
+                res.send(err);
+            }
+        }
         else {
             // res.append('Trip returned from the trip search');
+            console.log("No hay viajes que mostrar");
             res.json(trips);
         }
     });
@@ -47,11 +62,17 @@ exports.list_a_trip = function (req, res) {
     console.log('Searching an trip depending on params');
 };
 
-
-
-
 exports.update_an_trip = function (req, res) {
     // console.log((req.body));
+    if (req.body.ticker) {
+        res.sendStatus(409);
+        return;
+    }
+    var updatedPrice = 0;
+    req.body.stage.forEach(element => {
+        updatedPrice += element.price;
+    });
+    req.body.price = updatedPrice;
 
     Trip.findOneAndUpdate(
         { ticker: req.params.ticker },
@@ -74,7 +95,7 @@ exports.update_an_trip = function (req, res) {
 
 
 
-exports.update_an_trip_status = function (req, res) {
+exports.delete_an_trip_witout_app = function (req, res) {
     var keyWordQuery = {
         "trip": (req.params._id),
         "status": {
@@ -89,39 +110,31 @@ exports.update_an_trip_status = function (req, res) {
                 res.send(err);
             }
             else {
-                if (applications.length > 0) {
-                    res.status(405).json({ message: 'You can not update this trip' });
+                if (applications.length > 0 & res.params.date_start != null) {
+
+                    res.status(405).json({ message: 'You can not delete this trip' });
                     return;
                 } else {
-                    res.status(200).json({ message: 'You can update this trip' });
+                    res.status(200).json({ message: 'You can delete this trip' });
+                    Trip.deleteOne(
+                        { _id: req.params._id },
+                        function (err, trip) {
+
+                            if (err) {
+                                res.send(err);
+                            }
+                            else {
+                                res.json({ message: 'Trip successfully deleted' });
+                            }
+                        });
                 }
             }
         });
 
-    /* new ObjectId new mongoose.Schema.ObjectId
-        if (applications.status != "CANCELLED") {
-            res.status(405).json({ message: 'You can not update this trip' });
-        }
-        else {
-            Trip.findOneAndUpdate(
-                { ticker: req.params.ticker },
-                req.body.status,
-                { new: true },
-    
-    
-                function (err, trip) {
-    
-                    if (err) {
-                        res.send(err);
-                    }
-                    else {
-                        res.json(trip);
-                    }
-    
-    
-                });
-        }*/
+
 };
+
+
 
 exports.delete_an_trip = function (req, res) {
 
@@ -139,7 +152,8 @@ exports.delete_an_trip = function (req, res) {
 };
 
 exports.search_trips = (req, res) => {
-    // console.log(req.query); /v1/trips/search?q=viaje&sortedBy=created&reverse=true&pageSize=3&startFrom=3
+    // console.log(req.query); 
+    // /v1/trips/search?q=viaje&sortedBy=created&reverse=true&pageSize=3&startFrom=3
     var keyWordQuery = {};
 
     if (req.query.q) {
@@ -176,4 +190,6 @@ exports.search_trips = (req, res) => {
             }
 
         });
+
+
 };

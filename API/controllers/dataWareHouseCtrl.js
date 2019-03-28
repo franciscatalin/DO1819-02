@@ -148,15 +148,15 @@ function infoApplicationsbyTrip(callback) {
 function infoPriceofTrips(callback) {
     var pipeline = [
         {
-            $group: { _id: "$price", tripsactor: { $sum: "$price" } }
+            $group: { _id: "$price", tripsprice: { $sum: "$price" } }
         },
         {
             $group: {
                 _id: 0,
-                avg: { $avg: "$tripsactor" },
-                min: { $min: "$tripsactor" },
-                max: { $max: "$tripsactor" },
-                stdev: { $stdDevPop: "$tripsactor" }
+                avg: { $avg: "$tripsprice" },
+                min: { $min: "$tripsprice" },
+                max: { $max: "$tripsprice" },
+                stdev: { $stdDevPop: "$tripsprice" }
             }
         }, {
             $project: {
