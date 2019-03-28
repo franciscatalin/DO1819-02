@@ -3,11 +3,13 @@ FROM node:10
 # Create app directory
 WORKDIR /usr/src/app
 
+#hola project2
 # Install app dependencies
 # A wildcard is used to ensure both package.json AND package-lock.json are copied
 # where available (npm@5+)
 COPY package*.json ./
 
+#Hola project
 RUN npm install
 # If you are building your code for production
 # RUN npm install --only=production
@@ -17,5 +19,5 @@ COPY . .
 
 VOLUME /usr/src/app/data
 
-EXPOSE 8080
+EXPOSE 4000
 CMD [ "npm", "start" ]
