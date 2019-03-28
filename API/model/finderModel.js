@@ -1,34 +1,37 @@
 'use strict';
-var mongoose = require('mongoose');
+var mongoose = require('mongoose'),
+    trips = mongoose.model('Trips'),
+    actor = mongoose.model('Actors');
 var Schema = mongoose.Schema;
 
 var FinderSchema = new Schema({
-    keyword:{
+    result: [trips.schema],
+    keyword: {
         type: String,
-        required:'Keyword is required'
+        required: 'Keyword is required'
     },
-    
-    dateInit:{
+    dateInit: {
         type: Date,
         required: true
     },
-    dateEnd:{
+    dateEnd: {
         type: Date,
         required: true
     },
-    priceMin:{
+    priceMin: {
         type: Number,
         required: 'princeMin is required',
         min: 0
     },
-    priceMax:{
+    priceMax: {
         type: Number,
         required: 'priceMax is required'
     },
-    explorerID:{
+    explorerID: {
         type: Schema.Types.ObjectId,
         ref: "Actor",
         required: 'explorer actor id required'
     }
+}, { strict: false });
 
-  }, { strict: false });
+module.exports = mongoose.model('FinderSchema', FinderSchema);

@@ -24,7 +24,7 @@ var stagechema = new Schema({
 }, { strict: false });
 
 var TripSchema = new Schema({
-    actor: {
+    manager: {
         type: mongoose.ObjectId,
         ref: 'Actor',
         required: 'Kindly enter a valid manager of trip'
@@ -92,6 +92,7 @@ var TripSchema = new Schema({
 TripSchema.pre('save', function (callback) {
     var new_trip = this;
     var totalPrice = 0;
+    new_trip.price = 0;
 
     new_trip.stage.forEach(element => {
         totalPrice += element.price;

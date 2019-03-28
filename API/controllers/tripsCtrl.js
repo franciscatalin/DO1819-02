@@ -18,15 +18,15 @@ exports.create_an_trip = function (req, res) {
     });
 };
 
-exports.list_all_trips = function (req, res) { 
+exports.list_all_trips = function (req, res) {
     Trip.find(function (err, trips) {
         if (err) {
             res.send(err);
         }
-        else { 
+        else {
             res.json(trips);
         }
-    }); 
+    });
 };
 
 exports.list_all_trips_status = function (req, res) {
@@ -68,6 +68,7 @@ exports.update_an_trip = function (req, res) {
         res.sendStatus(409);
         return;
     }
+    req.body.price = 0;
     var updatedPrice = 0;
     req.body.stage.forEach(element => {
         updatedPrice += element.price;
@@ -96,7 +97,7 @@ exports.update_an_trip = function (req, res) {
 
 
 exports.delete_an_trip_witout_app = function (req, res) {
-    var keyWordQuery = {
+    var query = {
         "trip": (req.params._id),
         "status": {
             "$ne": "CANCELLED"
@@ -104,13 +105,13 @@ exports.delete_an_trip_witout_app = function (req, res) {
     };
 
     Application.find(
-        keyWordQuery,
+        query,
         function (err, applications) {
             if (err) {
                 res.send(err);
             }
             else {
-                if (applications.length > 0 & res.params.date_start != null) {
+                if (applications.length > 0 && res.params.date_start != null) {
 
                     res.status(405).json({ message: 'You can not delete this trip' });
                     return;
@@ -133,8 +134,6 @@ exports.delete_an_trip_witout_app = function (req, res) {
 
 
 };
-
-
 
 exports.delete_an_trip = function (req, res) {
 
@@ -164,17 +163,21 @@ exports.search_trips = (req, res) => {
     if (req.query.startFrom) {
         skip = parseInt(req.query.startFrom);
     }
+
     var limit = 0;
     if (req.query.pageSize) {
         limit = parseInt(req.query.pageSize);
     }
 
     var sort = "";
-    if (req.query.reverse == "true") {
-        sort = "-";
-    }
-    if (req.query.sortedBy) {
-        sort += req.query.sortedBy;
+    if (req.query.reverse == "true" || req.query.reverse == "false") {
+        if (req.query.sortedBy) {
+            sort = "-";
+            sort += req.query.sortedBy;
+        } else {
+            res.status(400).json({ message: 'Missing query parameter sortedBy' });
+            return;
+        }
     }
 
     Trip.find(keyWordQuery)
@@ -188,8 +191,6 @@ exports.search_trips = (req, res) => {
             } else {
                 res.send(trip);
             }
-
         });
-
 
 };
