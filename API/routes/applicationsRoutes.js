@@ -58,4 +58,19 @@ module.exports = function (app) {
     app.route('/v2/applications/:_id')
         .put(authController.verifyUser(["MANAGER"]),
         application.change_status);   
+
+
+        app.route('/v2/applications')
+        .get(authController.verifyUser(["EXPLORER"]),
+            application.group_status);
+
+    app.route('/v2/applications/:_id')
+        .put(authController.verifyUser(["EXPLORER"]),
+            application.paytrip);
+
+    app.route('/v2/applications/:_id')
+        .delete(authController.verifyUser(["EXPLORER"]),
+            application.delete_an_application);
+
+
 }

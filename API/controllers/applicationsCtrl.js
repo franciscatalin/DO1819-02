@@ -70,3 +70,14 @@ exports.delete_an_application = function (req, res) {
 exports.change_status = function (req, res) {
    //PUT -- "CHANGE STATUS FOR MANAGER FROM PENDING TO REJECTED OR FROM PENDING TO DUE"
 };
+
+exports.application.group_status = function (req, res) {
+    //GET -- "List and display the application that he or she's made , grouped by status"
+ };
+
+ exports.application.application.paytrip  = function (req, res) {
+ };
+
+ 
+ exports.application.application.paytrip  = function (req, res) {
+};
