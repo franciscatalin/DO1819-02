@@ -2,13 +2,14 @@ require('./API/model/applicationsModel'),
     require('./API/model/tripsModel'),
     require('./API/model/actorsModel'),
     require('./API/model/bannerModel'),
+    require('./API/model/finderModel'),
     require('./API/model/dataWareHouseModel');
 
 var mongoose = require('mongoose');
 
 // MongoDB URI building
-var mongoDBUser = process.env.mongoDBUser;// || "myAdmin";
-var mongoDBPass = process.env.mongoDBPass;// || "myAdminPassword";
+var mongoDBUser = process.env.mongoDBUser || "myAdmin";
+var mongoDBPass = process.env.mongoDBPass || "myAdminPassword";
 var mongoDBCredentials =
     (mongoDBUser && mongoDBPass) ? mongoDBUser + ":" + mongoDBPass + "@" : "";
 

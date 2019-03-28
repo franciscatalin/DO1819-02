@@ -24,7 +24,7 @@ var stagechema = new Schema({
 }, { strict: false });
 
 var TripSchema = new Schema({
-    actor: {
+    manager: {
         type: mongoose.ObjectId,
         ref: 'Actor',
         required: 'Kindly enter a valid manager of trip'
