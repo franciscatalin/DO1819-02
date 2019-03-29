@@ -1,9 +1,9 @@
-BASE_SITE=do1819-02.com
+BASE_SITE=do1819_02.com
 
 # development
 export NODE_ENV=development
 export PORT=8078 
-export DBPORT=27018
+export DBPORT=27022
 export VIRTUAL_HOST=$NODE_ENV.$BASE_SITE
 docker-compose -p $VIRTUAL_HOST up -d --build
 

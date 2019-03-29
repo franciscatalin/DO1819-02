@@ -13,7 +13,7 @@ services:
     depends_on:
       - mongo
     ports:
-      - "127.0.0.1:${PORT}:4000"
+      - "127.0.0.1:${PORT}:8080"
     volumes:
       - "logsvol:/usr/src/app/logs"
   mongo:
@@ -22,7 +22,7 @@ services:
       - DBPORT=${DBPORT}
     expose:
        - "${DBPORT}"
-    command: --logpath /var/log/mongodb/mongodb.log --port ${DBPORT} 
+    command:  --port ${DBPORT} #--logpath /var/log/mongodb/mongodb.log
     volumes:
       - "dbdata:/data/db"
       - "logsvol:/var/log/mongodb"
@@ -34,4 +34,4 @@ volumes:
 networks: 
   default:
     external:
-      name: service-tier
+      name: service-tier-1

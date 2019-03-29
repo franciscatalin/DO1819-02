@@ -170,9 +170,9 @@ exports.search_trips = (req, res) => {
     }
 
     var sort = "";
-    if (req.query.reverse == "true" || req.query.reverse == "false") {
+    if (req.query.reverse) {
         if (req.query.sortedBy) {
-            sort = "-";
+            if (req.query.reverse == "true") sort = "-";
             sort += req.query.sortedBy;
         } else {
             res.status(400).json({ message: 'Missing query parameter sortedBy' });
