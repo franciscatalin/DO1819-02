@@ -18,7 +18,7 @@ COPY . .
 
 VOLUME /usr/src/app/data
 
-ARG PORT=4000
+ARG PORT=8080
 ENV PORT $PORT
 EXPOSE $PORT 
 
