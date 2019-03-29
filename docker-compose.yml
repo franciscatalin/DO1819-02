@@ -22,7 +22,7 @@ services:
       - DBPORT=${DBPORT}
     expose:
        - "${DBPORT}"
-    command: --logpath /var/log/mongodb/mongodb.log --port ${DBPORT} 
+    command:  --port ${DBPORT} #--logpath /var/log/mongodb/mongodb.log
     volumes:
       - "dbdata:/data/db"
       - "logsvol:/var/log/mongodb"
@@ -34,4 +34,4 @@ volumes:
 networks: 
   default:
     external:
-      name: service-tier
+      name: service-tier-1
