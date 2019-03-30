@@ -5,13 +5,12 @@ module.exports = function (app) {
 
   /**
    * Post an trip
+   * Get an trip
    * RequiredRoles: None
-   * get an trip 
-   * RequiredRoles: None
-   * @section application
+   * @section trip
    * @type post get
    * @url /v1/trips
-   * param {string} sortedBy (category)
+   * @param {string} sortedBy (category)
   */
   app.route('/v1/trips')
     .post(trip.create_an_trip)
@@ -19,8 +18,7 @@ module.exports = function (app) {
 
   /**
    * get results from a search engine
-   *    RequiredRoles: None; 
-   * 
+   * RequiredRoles: None
    * @section trips
    * @type get
    * @url /v1/trips/search
@@ -35,39 +33,45 @@ module.exports = function (app) {
 
   /**
    * Put an trip
-   * Delete an trip
+   * RequiredRoles: None
    * @section trips
-   * @type  put delete
+   * @type put
    * @url /v1/trips/:ticker
   */
   app.route('/v1/trips/:ticker')
     .put(trip.update_an_trip);
-     
+
+  /**
+   * Get an trip
+   * RequiredRoles: Explorer
+   * @section trip
+   * @type get
+   * @url /v2/trips
+  */
   app.route('/v2/trips')
     .get(authController.verifyUser(['EXPLORER']),
       trip.list_all_trips_status);
 
- /**
-   * RequiredRoles: Manager
+  /**
    * Get an trip
-   * Delete an trip
+   * Post an trip
+   * RequiredRoles: Manager
    * @section trip
-   * @type  get post
+   * @type get post
    * @url /v2/trips/:ticker
   */
   app.route('/v2/trips/:ticker')
     .get(trip.list_a_trip)
     .post(authController.verifyUser(['MANAGER']),
       trip.create_an_trip);
-
-      
- /**
-   * RequiredRoles: Manager
+ 
+  /**
    * Get an trip
    * Put an trip
-   * Delete and trip
+   * Delete an trip
+   * RequiredRoles: Manager
    * @section trip
-   * @type  get put delete
+   * @type get put delete
    * @url /v2/trips/:ticker
   */
   app.route('/v2/trips/:ticker')
@@ -78,14 +82,13 @@ module.exports = function (app) {
     .delete(authController.verifyUser(['MANAGER']),
      trip.delete_an_trip_witout_app);
 
-     /**
-   * RequiredRoles: Manager
+  /**
    * Put an trip
+   * RequiredRoles: Manager
    * @section trip
    * @type put 
-   * @url /v2/trips/:ticker
+   * @url /v2/trips/:ticker/cancel
   */
-
   app.route('/v2/trips/:ticker/cancel')
     .put(authController.verifyUser(['MANAGER']),
       trip.cancel_a_trip);
