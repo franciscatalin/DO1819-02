@@ -1,6 +1,6 @@
 require('./db');
 var app = require('./routerSevices');
-var port = process.env.PORT || 4000,
+var port = process.env.PORT || 8080,
 DataWareHouseTools = require('./API/controllers/dataWareHouseCtrl');
 
 // console.log("Server ready with static content!");
