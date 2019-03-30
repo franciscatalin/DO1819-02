@@ -22,7 +22,7 @@ services:
       - DBPORT=${DBPORT}
     expose:
        - "${DBPORT}"
-    command:  --port ${DBPORT} #--logpath /var/log/mongodb/mongodb.log
+    command:  --port ${DBPORT}
     volumes:
       - "dbdata:/data/db"
       - "logsvol:/var/log/mongodb"
