@@ -10,7 +10,7 @@ module.exports = function (app) {
    * RequiredRoles: None
    * @section application
    * @type post get
-   * @url /v1/applications
+   * @url /v1/trips
    * param {string} sortedBy (category)
   */
   app.route('/v1/trips')
@@ -36,7 +36,7 @@ module.exports = function (app) {
   /**
    * Put an trip
    * Delete an trip
-   * @section applications
+   * @section trips
    * @type  put delete
    * @url /v1/trips/:ticker
   */
@@ -76,8 +76,15 @@ module.exports = function (app) {
     .put(authController.verifyUser(['MANAGER']),
       trip.update_an_trip)
     .delete(authController.verifyUser(['MANAGER']),
- 
-      trip.delete_an_trip_witout_app);
+     trip.delete_an_trip_witout_app);
+
+     /**
+   * RequiredRoles: Manager
+   * Put an trip
+   * @section trip
+   * @type put 
+   * @url /v2/trips/:ticker
+  */
 
   app.route('/v2/trips/:ticker/cancel')
     .put(authController.verifyUser(['MANAGER']),
