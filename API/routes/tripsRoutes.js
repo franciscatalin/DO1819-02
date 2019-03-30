@@ -41,8 +41,11 @@ module.exports = function (app) {
    * @url /v1/trips/:ticker
   */
   app.route('/v1/trips/:ticker')
-    .put(trip.update_an_trip)
-    .delete(trip.delete_an_trip);
+    .put(trip.update_an_trip);
+     
+  app.route('/v2/trips')
+    .get(authController.verifyUser(['EXPLORER']),
+      trip.list_all_trips_status);
 
  /**
    * RequiredRoles: Manager
@@ -73,27 +76,10 @@ module.exports = function (app) {
     .put(authController.verifyUser(['MANAGER']),
       trip.update_an_trip)
     .delete(authController.verifyUser(['MANAGER']),
-      trip.delete_an_trip);
- /**
-   * RequiredRoles: Manager
-   * Delete an trip
-   * @section trip
-   * @type  delete
-   * @url /v2/trips/:ticker
-  */     
-  app.route('/v3/trips/:ticker')
-    .delete(authController.verifyUser(['MANAGER']),
+ 
       trip.delete_an_trip_witout_app);
 
- /**
-   * RequiredRoles: Manager
-   * Get an trip
-   * @section trip
-   * @type  get
-   * @url /v2/trips/
-  */       
-
-  app.route('/v3/trips')
-    .get(authController.verifyUser(['EXPLORER']),
-      trip.list_all_trips_status);
-}
+  app.route('/v2/trips/:ticker/cancel')
+    .put(authController.verifyUser(['MANAGER']),
+      trip.cancel_a_trip);
+} 
