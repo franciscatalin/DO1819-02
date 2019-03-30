@@ -58,7 +58,6 @@ exports.list_a_trip = function (req, res) {
             res.json(trip);
         }
     });
-
     console.log('Searching an trip depending on params');
 };
 
@@ -135,17 +134,22 @@ exports.delete_an_trip_witout_app = function (req, res) {
 
 };
 
-exports.delete_an_trip = function (req, res) {
+exports.cancel_a_trip = function (req, res) {
+    req.body.cancelationMoment = new Date();
 
-    Trip.deleteOne(
-        { _id: req.params._id },
+    console.log(req.params);
+    console.log(req.body);
+
+    Trip.findOneAndUpdate(
+        { ticker: req.params.ticker },
+        req.body,
+        { new: true },
         function (err, trip) {
-
             if (err) {
                 res.send(err);
             }
             else {
-                res.json({ message: 'Trip successfully deleted' });
+                res.json({ message: 'Trip successfully cancelled' });
             }
         });
 };
