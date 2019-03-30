@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "878a07f5-1682-4f31-8dd3-ca4faeada561",
+		"_postman_id": "c59ff90a-c45c-4b70-870a-87670da07e85",
 		"name": "ACME-EXPLORER",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -489,7 +489,7 @@
 					"response": []
 				},
 				{
-					"name": "Post Insert Many Actors",
+					"name": "Post Store from fs",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -536,7 +536,7 @@
 					"response": []
 				},
 				{
-					"name": "Post Store from fs",
+					"name": "Post Insert Many Actors",
 					"request": {
 						"method": "POST",
 						"header": [],
