@@ -1,6 +1,6 @@
 require('./db');
 var app = require('./routerSevices');
-var port = (process.env.mongoDBHostname === "mongo") ? 8080 : process.env.PORT || 8080,
+var port = process.env.PORT || 8080,
     DataWareHouseTools = require('./API/controllers/dataWareHouseCtrl');
 
 // console.log("Server ready with static content!");

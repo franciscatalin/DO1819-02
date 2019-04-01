@@ -2,27 +2,27 @@ version: '3'
 services:
   do1819-02:
     build: .
-    environment: 
+    environment:
       - NODE_ENV=${NODE_ENV}
       - PORT=${PORT}
       - DBPORT=${DBPORT}
-      - mongoDBHostname=mongo
+      - mongoDBHostname=${mongoDBHostname}
       - VIRTUAL_HOST=${VIRTUAL_HOST}
       - VIRTUAL_PORT=${PORT}
     restart: on-failure
     depends_on:
       - mongo
     ports:
-      - "127.0.0.1:${PORT}:8080"
+      - "127.0.0.1:${PORT}:${PORT}"
     volumes:
       - "logsvol:/usr/src/app/logs"
   mongo:
     image: "mongo"
-    environment: 
+    environment:
       - DBPORT=${DBPORT}
     expose:
        - "${DBPORT}"
-    command:  --port ${DBPORT} #--logpath /var/log/mongodb/mongodb.log
+    command:  --port ${DBPORT}
     volumes:
       - "dbdata:/data/db"
       - "logsvol:/var/log/mongodb"
@@ -31,7 +31,7 @@ volumes:
   logsvol:
   dbdata:
 
-networks: 
+networks:
   default:
     external:
       name: service-tier

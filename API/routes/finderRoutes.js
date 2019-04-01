@@ -3,11 +3,9 @@ module.exports = function (app) {
   var finder = require('../controllers/finderCtrl'),
   authController = require('../controllers/authCtrl');
 
-  
   /**   
    * Get list of finders
-   * RequiredRoles: Explorer
-   * Post finder 
+   * Post finder
    * RequiredRoles: Explorer
    * @section finder
    * @type get post
@@ -21,8 +19,7 @@ module.exports = function (app) {
 
   /**  
    * Get finder by finderId
-   * RequiredRoles: Explorer
-   * Put finder 
+   * Put finder
    * RequiredRoles: Explorer
    * @section finder
    * @type get put
