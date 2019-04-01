@@ -8,11 +8,12 @@ require('./API/model/applicationsModel'),
 var mongoose = require('mongoose');
 
 // MongoDB URI building
-var mongoDBUser = (process.env.mongoDBHostname === "mongo") ? ""
+var mongoDBUser = (process.env.mongoDBHostname === "mongo" || process.env.mongoDBHostname === '172.17.0.2') ? ""
     : process.env.mongoDBUser || "myAdmin";
-var mongoDBPass = (process.env.mongoDBHostname === "mongo") ? ""
+
+var mongoDBPass = (process.env.mongoDBHostname === "mongo" || process.env.mongoDBHostname === '172.17.0.2') ? ""
     : process.env.mongoDBPass || "myAdminPassword";
-    
+
 var mongoDBCredentials =
     (mongoDBUser && mongoDBPass) ? mongoDBUser + ":" + mongoDBPass + "@" : "";
 
