@@ -15,6 +15,7 @@ module.exports = function (app) {
         .get(application.search_applications);
 
     /**
+     * Get a list with applications
      * Post an applications
      * RequiredRoles: None  
      * @section applications
