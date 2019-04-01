@@ -33,7 +33,8 @@ module.exports = function (app) {
 	 * @url /v2/actors/:actorId
   */
   app.route('/v2/actors/:actorId')
-    .get(actors.read_an_actor)
+    .get(authController.verifyUser(['ADMINISTRATOR']), 
+    actors.read_an_actor)
     .put(authController.verifyUser(['ADMINISTRATOR', 'MANAGER', 'EXPLORER', 'SPONSOR']), 
     actors.update_an_actor_v2);
     //Explorer, sponsor y manager no puede modificar la info de otro explorer/sponsor/manager
