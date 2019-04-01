@@ -22,17 +22,18 @@ module.exports = function (app) {
      * @url /v1/applications
     */
     app.route('/v1/applications')
+        .get(application.list_applications)
         .post(application.create_an_application);
 
     /**
      * Put an applications
      * RequiredRoles: None
-     * @section applications
+     * @section applicationsrs
      * @type put
      * @url /v1/application/:_id
      */
     app.route('/v1/applications/:_id')
-        .put(application.update_an_application);
+        .put(application.update_status_application);
 
     /**
      * Get an applications
@@ -65,7 +66,7 @@ module.exports = function (app) {
     */
     app.route('/v2/applications/:_id')
         .put(authController.verifyUser(["MANAGER"]),
-            application.change_status);
+            application.update_status_application);
 
     /**
     * Get an applications
@@ -73,21 +74,11 @@ module.exports = function (app) {
     * @section applications
     * @type get
     * @url /v2/applications
-    */ 
+    */
     app.route('/v2/applications')
         .get(authController.verifyUser(["EXPLORER"]),
             application.group_status);
 
-    /**
-    * Put an applications
-    * RequiredRoles: Explorer
-    * @section applications
-    * @type put
-    * @url /v2/applications/:_id
-    */
-    app.route('/v2/applications/:_id')
-        .put(authController.verifyUser(["EXPLORER"]),
-            application.paytrip);
 
     /**
     * Delete an application
@@ -99,5 +90,9 @@ module.exports = function (app) {
     app.route('/v2/applications/:_id')
         .delete(authController.verifyUser(["EXPLORER"]),
             application.delete_an_application);
+
+
+
+
 
 }

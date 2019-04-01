@@ -42,6 +42,26 @@ module.exports = function (app) {
     .put(trip.update_an_trip);
 
   /**
+    * Delete an trip
+    * RequiredRoles: Manager
+    * @section trips
+    * @type delete
+    * @url /v1/trips/:_id
+   */
+  app.route('/v1/trips/:_id')
+    .delete(trip.delete_an_trip_witout_app);
+
+  /**
+    * Put an trip
+    * RequiredRoles: Manager
+    * @section trip
+    * @type put 
+    * @url /v1/trips/:ticker/status
+   */
+  app.route('/v1/trips/:ticker/status')
+    .put(trip.change_status_trip);
+
+  /**
    * Get an trip
    * RequiredRoles: Explorer
    * @section trip
@@ -64,7 +84,7 @@ module.exports = function (app) {
     .get(trip.list_a_trip)
     .post(authController.verifyUser(['MANAGER']),
       trip.create_an_trip);
- 
+
   /**
    * Get an trip
    * Put an trip
@@ -78,18 +98,40 @@ module.exports = function (app) {
     .get(authController.verifyUser(['MANAGER']),
       trip.list_a_trip)
     .put(authController.verifyUser(['MANAGER']),
-      trip.update_an_trip)
+      trip.update_an_trip);
+
+  /**
+    * Delete an trip
+    * RequiredRoles: Manager
+    * @section trips
+    * @type delete
+    * @url /v2/trips/:_id
+   */
+  app.route('/v2/trips/:_id')
     .delete(authController.verifyUser(['MANAGER']),
-     trip.delete_an_trip_witout_app);
+      trip.delete_an_trip_witout_app);
 
   /**
    * Put an trip
    * RequiredRoles: Manager
    * @section trip
    * @type put 
-   * @url /v2/trips/:ticker/cancel
+   * @url /v2/trips/:ticker/status
   */
-  app.route('/v2/trips/:ticker/cancel')
+  app.route('/v2/trips/:ticker/status')
     .put(authController.verifyUser(['MANAGER']),
-      trip.cancel_a_trip);
+      trip.change_status_trip);
+
+  app.route('v2/trips/:_id/applications')
+    .get(authController.verifyUser(['MANAGER']),
+      trip.search_list_all_applications_trip);
+
+
+  app.route('v2/trips/:_id/applications/:_id/status')
+    .put(authController.verifyUser(['MANAGER']),
+      trip.change_status_trip_applications);
+
+      app.route('/v1/trips/:_id/applications/:_id/pay')
+      .put(trip.pay_application);
+
 } 

@@ -6,7 +6,7 @@ module.exports = function(app) {
   	/**
 	 * Get a list of all indicators or post a new computation period for rebuilding
 	 * Post to rebuild the datawarehouse rebuildPeriod
-	 * RequiredRoles: None
+	 * RequiredRoles: Administrator
 	 * @section dataWareHouse
 	 * @type get post
 	 * @url v1/dataWareHouse
@@ -33,7 +33,7 @@ module.exports = function(app) {
 
 	/**
 	 * Get a list of last computed indicator
-	 * RequiredRoles: None
+	 * RequiredRoles: Administrator
 	 * @section dataWareHouse
 	 * @type get
 	 * @url v1/dataWareHouse/latest
