@@ -88,10 +88,9 @@ module.exports = function (app) {
   /**
    * Get an trip
    * Put an trip
-   * Delete an trip
    * RequiredRoles: Manager
    * @section trip
-   * @type get put delete
+   * @type get put
    * @url /v2/trips/:ticker
   */
   app.route('/v2/trips/:ticker')
@@ -122,16 +121,36 @@ module.exports = function (app) {
     .put(authController.verifyUser(['MANAGER']),
       trip.change_status_trip);
 
+  /**
+   * get an trip
+   * RequiredRoles: Manager
+   * @section trip
+   * @type get 
+   * @url /v2/trips/:_id/applications
+  */
   app.route('v2/trips/:_id/applications')
     .get(authController.verifyUser(['MANAGER']),
       trip.search_list_all_applications_trip);
 
-
+  /**
+   * put an trip
+   * RequiredRoles: Manager
+   * @section trip
+   * @type put 
+   * @url /v2/trips/:_id/applications/:_id/status
+  */
   app.route('v2/trips/:_id/applications/:_id/status')
     .put(authController.verifyUser(['MANAGER']),
       trip.change_status_trip_applications);
 
-      app.route('/v1/trips/:_id/applications/:_id/pay')
-      .put(trip.pay_application);
+  /**
+   * put an trip
+   * RequiredRoles: None
+   * @section trip
+   * @type put 
+   * @url /v1/trips/:_id/applications/:_id/pay
+  */
+  app.route('/v1/trips/:_id/applications/:_id/pay')
+    .put(trip.pay_application);
 
 } 
