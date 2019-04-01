@@ -8,11 +8,12 @@ require('./API/model/applicationsModel'),
 var mongoose = require('mongoose');
 
 // MongoDB URI building
-var mongoDBUser = (process.env.mongoDBHostname === "mongo") ? ""
+var mongoDBUser = (process.env.mongoDBHostname === "mongo" || process.env.mongoDBHostname === '172.17.0.2') ? ""
     : process.env.mongoDBUser || "myAdmin";
-var mongoDBPass = (process.env.mongoDBHostname === "mongo") ? ""
+
+var mongoDBPass = (process.env.mongoDBHostname === "mongo" || process.env.mongoDBHostname === '172.17.0.2') ? ""
     : process.env.mongoDBPass || "myAdminPassword";
-    
+
 var mongoDBCredentials =
     (mongoDBUser && mongoDBPass) ? mongoDBUser + ":" + mongoDBPass + "@" : "";
 
@@ -42,6 +43,7 @@ mongoose.connection.on("open", function (err, conn) {
 
 mongoose.connection.on("error", function (err, conn) {
     console.error("DB init error " + err);
+    process.exit(1);
 });
 
 module.exports = mongoose;
